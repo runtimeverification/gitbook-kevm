@@ -5,9 +5,9 @@
   * [Repository Structure](kevm-semantics-of-evm-in-k/repository-structure.md)
 * [KEVM Verification](kevm-verification.md)
 * [Resources](resources.md)
+* [KEVM Github Repo](https://github.com/runtimeverification/evm-semantics/)
 
 ## 🔗 Links
 
 * [Join our Discord!](https://discord.gg/CurfmXNtbN)
 * [KEVM Gitbook Repo](https://github.com/runtimeverification/gitbook-kevm)
-* [KEVM Github Repo](https://github.com/runtimeverification/evm-semantics/)
