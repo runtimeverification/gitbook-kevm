@@ -2,18 +2,18 @@
 
 ## Verification Instructions for KEVM
 
-We assume that KEVM is installed, and the [K tutorial](https://github.com/runtimeverification/k/tree/master/k-distribution/k-tutorial) has been completed. This document provides instructions for kompiling and running claims using KEVM.
+We assume that **KEVM** is installed, and the [**K** tutorial](https://github.com/runtimeverification/k/tree/master/k-distribution/k-tutorial) has been completed. This document provides instructions for `kompiling` and running claims using **KEVM**.
 
-In `tests/specs/examples`, you can find a few examples to get you started on proving with kevm.
+In `tests/specs/examples`, you can find a few examples to get you started on proving with **KEVM**.
 
 ### Example 1: Sum to N
 
-Have a look at the sum-to-n-spec.k file. It has two modules:
+Have a look at the `sum-to-n-spec.k` file. It has two modules:
 
 * `VERIFICATION` - containing the EVM program and a few `simplification` rules.
 * `SUM-TO-N-SPEC` - containing the claims which will be executed.
 
-The first step is kompiling the `.k` file with the below command.
+The first step is `kompiling` the `.k` file with the below command.
 
 ```sh
 kevm kompile sum-to-n-spec.k --pyk --backend haskell --syntax-module VERIFICATION --main-module VERIFICATION --definition sum-to-n-spec/haskell
@@ -21,11 +21,11 @@ kevm kompile sum-to-n-spec.k --pyk --backend haskell --syntax-module VERIFICATIO
 
 In this example, the arguments used are:
 
-* `—-pyk`: a flag that enables the pyk library.
-* `—-backend haskell`: used to kompile the definition with the Haskell backend, enabling the symbolic execution ([more about it here](https://github.com/runtimeverification/k/tree/master/k-distribution/k-tutorial/1\_basic/20\_backends#k-backends)).
+* `—-pyk`: a flag that enables the `pyk` library.
+* `—-backend haskell`: used to `kompile` the definition with the Haskell backend, enabling the symbolic execution ([more about it here](https://github.com/runtimeverification/k/tree/master/k-distribution/k-tutorial/1\_basic/20\_backends#k-backends)).
 * `--syntax-module VERIFICATION`: explicitly state the syntax module.
 * `--main-module VERIFICATION`: explicitly state the main module.
-* `--definition sum-to-n-spec/haskell`: the path where the kompiled definition is stored.
+* `--definition sum-to-n-spec/haskell`: the path where the `kompiled` definition is stored.
 
 Next, run the prover with:
 
@@ -37,18 +37,18 @@ The expected output is `#Top` which represents that all the claims have been pro
 
 ### Example 2: Faulty ERC20
 
-This example will describe the process of running claims for an ERC20 contract. Have a look at erc20-spec.md. It contains claims for a few basic ERC20 properties and the helper modules required to run the proofs. The ERC20 Solidity contract that is tested is ERC20.sol.
+This example will describe the process of running claims for an ERC20 contract. Have a look at `erc20-spec.md`. It contains claims for a few basic ERC20 properties and the helper modules required to run the proofs. The ERC20 Solidity contract that is tested is `ERC20.sol`.
 
-In this example, we rely on a helper module, `ERC20-VERIFICATION`, which must be generated from the ERC20.sol Solidity contract. The module is generated using the following `solc-to-k` command.
+In this example, we rely on a helper module, `ERC20-VERIFICATION`, which must be generated from the `ERC20.sol` Solidity contract. The module is generated using the following `solc-to-k` command.
 
 ```sh
 kevm solc-to-k ERC20.sol ERC20 --pyk --main-module ERC20-VERIFICATION > erc20-bin-runtime.k
 ```
 
-* `solc-to-k` will parse a Solidity contract and generate a helper K module.
+* `solc-to-k` will parse a Solidity contract and generate a helper **K** module.
 * `--main-module` is used to set the name of the module.
 
-The generated `erc20-bin-runtime.k` file contains K rules and productions for the contract’s bytecode, storage indexes for the state variables, and function selectors, among others. These rules are then used in the claims. As an example, the `#binRuntime(ERC20)` production, which is found in the `<program>` cell, will rewrite to `#parseByteStack (contractBytecode)`, parsing the hexadecimal string into a `ByteStack`.
+The generated `erc20-bin-runtime.k` file contains **K** rules and productions for the contract’s bytecode, storage indexes for the state variables, and function selectors, among others. These rules are then used in the claims. As an example, the `#binRuntime(ERC20)` production, which is found in the `<program>` cell, will rewrite to `#parseByteStack (contractBytecode)`, parsing the hexadecimal string into a `ByteStack`.
 
 Following this, we can compile the Markdown file with:
 
@@ -87,7 +87,7 @@ In addition to this, you can use `kevm show-kcfg ...` or `kevm view-kcfg ...` to
 * `--claim claim_label` option is added, but unlike the `kevm prove --pyk ...`, you can only repeat it once. This option lets you select an individual claim out of the `spec_file`; if not supplied, it’s assumed that only one spec is present.
 * `--spec-module spec_module` is also an inherited option.
 
-The interactive KCFG (`view-kcfg`) puts your terminal in _application mode_. To select text in this mode, hold the modifier key provided by your terminal emulator (typically SHIFT or OPTION) while clicking and dragging. Refer to the [Textualize documentation](https://github.com/Textualize/textual/blob/main/FAQ.md#how-can-i-select-and-copy-text-in-a-textual-app) for more information.
+The interactive **KCFG** (`view-kcfg`) puts your terminal in _application mode_. To select text in this mode, hold the modifier key provided by your terminal emulator (typically SHIFT or OPTION) while clicking and dragging. Refer to the [Textualize documentation](https://github.com/Textualize/textual/blob/main/FAQ.md#how-can-i-select-and-copy-text-in-a-textual-app) for more information.
 
 A running example:
 
