@@ -4,6 +4,7 @@
   * [Installation](kevm-semantics-of-evm-in-k/installation.md)
   * [Repository Structure](kevm-semantics-of-evm-in-k/repository-structure.md)
 * [KEVM Verification](kevm-verification.md)
+* [K Control Flow Graph (KCFG)](k-control-flow-graph-kcfg.md)
 * [Resources](resources.md)
 * [KEVM Github Repo](https://github.com/runtimeverification/evm-semantics/)
 
