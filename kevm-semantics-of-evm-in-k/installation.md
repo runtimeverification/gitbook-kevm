@@ -3,15 +3,15 @@
 ### Fast Installation
 
 * `bash <(curl https://kframework.org/install)`: install [kup package manager](https://github.com/runtimeverification/kup).
-* `kup install kevm`: install KEVM.
-* `kup list kevm`: list available KEVM versions.
-* `kup update kevm`: update to latest KEVM version.
+* `kup install kevm`: install **KEVM**.
+* `kup list kevm`: list available **KEVM** versions.
+* `kup update kevm`: update to latest **KEVM** version.
 
 **NOTE**: The first run will take longer to fetch all the libraries and compile sources. (30m to 1h)
 
 ### Documentation/Support
 
-These may be useful for learning KEVM and K (newest to oldest):
+These may be useful for learning **KEVM** and **K** (newest to oldest):
 
 * [K, KEVM and Foundry Integration overview](https://www.youtube.com/watch?v=9PLnQStkiUo)
 * [Jello Paper](https://jellopaper.org), a nice presentation of this repository.
@@ -19,13 +19,13 @@ These may be useful for learning KEVM and K (newest to oldest):
 * [KEVM 1.0 technical report](http://hdl.handle.net/2142/97207), especially sections 3 and 5.
 * [KEVM Paper at CSF'18/FLoC](https://fsl.cs.illinois.edu/publications/hildenbrandt-saxena-zhu-rodrigues-daian-guth-moore-zhang-park-rosu-2018-csf).
 
-To get support for KEVM, please join our [Discord Channel](https://discord.com/invite/CurfmXNtbN).
+To get support for **KEVM**, please join our [Discord Channel](https://discord.com/invite/CurfmXNtbN).
 
-If you want to start proving with KEVM, refer to VERIFICATION.md.
+If you want to start proving with **KEVM**, refer to `VERIFICATION.md`.
 
 ### Building from source
 
-There are two backends of K available: LLVM for concrete execution and Haskell for symbolic execution. This repository generates the build-products for each backend in `.build/usr/lib/kevm`.
+There are two backends of **K** available: LLVM for concrete execution and Haskell for symbolic execution. This repository generates the build-products for each backend in `.build/usr/lib/kevm`.
 
 #### System Dependencies
 
@@ -38,7 +38,7 @@ First install the following tools:
 
 **Installing Z3**
 
-KEVM requires Z3 version 4.12.1, which you may need to install from a source build if your package manager supplies a different version. To do so, follow the instructions [here](https://github.com/Z3Prover/z3#building-z3-using-make-and-gccclang) after checking out the correct tag in the Z3 repository:
+**KEVM** requires Z3 version 4.12.1, which you may need to install from a source build if your package manager supplies a different version. To do so, follow the instructions [here](https://github.com/Z3Prover/z3#building-z3-using-make-and-gccclang) after checking out the correct tag in the Z3 repository:
 
 ```sh
 git clone https://github.com/Z3Prover/z3.git
@@ -121,7 +121,7 @@ export PATH=$HOME/.local/bin:$PATH
 
 **K Framework**
 
-The `Makefile` and `kevm` will work with either a (i) globally installed K or a (ii) K submodule included in this repository. For contributing to `kevm`, it is highly recommended to go with (ii) because some of the build scripts might not work otherwise. Follow these instructions to get and build the K submodule:
+The `Makefile` and `kevm` will work with either a (i) globally installed **K** or a (ii) **K** submodule included in this repository. For contributing to `kevm`, it is highly recommended to go with (ii) because some of the build scripts might not work otherwise. Follow these instructions to get and build the **K** submodule:
 
 ```sh
 git submodule update --init --recursive -- deps/k
@@ -233,7 +233,7 @@ Always have your build up-to-date.
 
 #### Building with Nix
 
-We now support building KEVM using [nix flakes](https://nixos.wiki/wiki/Flakes). To set up nix flakes you will need to be on `nix` 2.4 or higher and follow the instructions [here](https://nixos.wiki/wiki/Flakes).
+We now support building **KEVM** using [nix flakes](https://nixos.wiki/wiki/Flakes). To set up nix flakes you will need to be on `nix` 2.4 or higher and follow the instructions [here](https://nixos.wiki/wiki/Flakes).
 
 For example, if you are on a standard Linux distribution, such as Ubuntu, first [install nix](https://nixos.org/download.html#download-nix) and then enable flakes by editing either `~/.config/nix/nix.conf` or `/etc/nix/nix.conf` and adding:
 
@@ -245,13 +245,13 @@ This is needed to expose the Nix 2.0 CLI and flakes support that are hidden behi
 
 By default, Nix will build the project and its transitive dependencies from source, which can take up to an hour. We recommend setting up [the binary cache](https://app.cachix.org/cache/kore) to speed up the build process significantly.
 
-To build KEVM, run:
+To build **KEVM**, run:
 
 ```sh
 nix build .#kevm
 ```
 
-This will build all of KEVM and K and put a link to the resulting binaries in the `result/` folder.
+This will build all of **KEVM** and **K** and put a link to the resulting binaries in the `result/` folder.
 
 **NOTE**: Mac users, especially those running M1/M2 Macs may find nix segfaulting on occasion. If this happens, try running the nix command like this: `GC_DONT_GC=1 nix build .`
 
