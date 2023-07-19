@@ -1,10 +1,18 @@
 # Table of contents
 
+## Overview
+
 * [KEVM: Semantics of EVM in K](README.md)
-* [KEVM Verification](kevm-verification.md)
-* [Repository Structure](repository-structure.md)
-* [K Control Flow Graph (KCFG)](k-control-flow-graph-kcfg.md)
-* [Resources](resources.md)
+* [Repository Structure](overview/repository-structure.md)
+
+## Guides
+
+* [KEVM Verification](guides/kevm-verification.md)
+* [K Control Flow Graph (KCFG)](guides/k-control-flow-graph-kcfg.md)
+
+## Learn More
+
+* [Resources](learn-more/resources.md)
 
 ## 🔗 Links
 
